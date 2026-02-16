@@ -1,170 +1,556 @@
-<html>
-<head>
-    <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="px-4 py-16 mx-auto w-full md:px-24 lg:px-8 lg:py-16 bg-gray-200">
-    <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
-        <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
-            <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                    <span class="relative inline-block"><svg viewBox="0 0 52 24" fill="currentColor"
-                                                             class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"><defs><pattern
-                            id="e77df901-b9d7-4b9b-822e-16b2d410795b" x="0" y="0" width=".135" height=".30"><circle
-                            cx="1" cy="1" r=".7"></circle></pattern></defs> <rect
-                            fill="url(#e77df901-b9d7-4b9b-822e-16b2d410795b)" width="52"
-                            height="24"></rect></svg></span>
-                    The IT experts
-                </h2>
-                <p class="text-base text-gray-700 md:text-lg">
-                    Expertise to help your business thrive
-                </p></div>
-            <div><a href="#contact-us"
-                    class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-500 hover:bg-indigo-500 focus:shadow-outline focus:outline-none">
-                We have the answers.
-            </a></div>
-        </div>
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excelsior Consultancy Pty Ltd</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    
+    .parallax-section {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .hero-gradient {
+      background: radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    }
+    
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+    
+    .service-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .btn-primary {
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.4);
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background-color: #ffffff;"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+     <div class="flex items-center gap-2">
+      <svg width="32" height="32" viewbox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#3b82f6" /> <path d="M8 16L14 10L20 16L14 22L8 16Z" fill="white" /> <path d="M14 16L20 10L26 16L20 22L14 16Z" fill="white" fill-opacity="0.6" />
+      </svg><span id="nav-title" class="font-semibold text-lg tracking-tight" style="color: #111827;">Excelsior</span>
+     </div>
+     <div class="hidden md:flex items-center gap-8"><a href="#about" class="text-sm font-medium transition-colors hover:text-blue-500" style="color: #6b7280;">About</a> <a href="#services" class="text-sm font-medium transition-colors hover:text-blue-500" style="color: #6b7280;">Services</a> <a href="#why-us" class="text-sm font-medium transition-colors hover:text-blue-500" style="color: #6b7280;">Why Us</a> <a href="#contact" class="text-sm font-medium transition-colors hover:text-blue-500" style="color: #6b7280;">Contact</a>
+     </div><a href="#contact" class="btn-primary px-5 py-2.5 text-sm font-medium text-white rounded-full" style="background-color: #3b82f6;"> Get Started </a>
     </div>
-</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!---->
-<div class="px-4 py-16 mx-auto bg-white w-full md:px-24 lg:px-8 lg:py-20">
-    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"><h2
-            class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-        Trusted, Expert Guidance for your Technology Needs.
-    </h2>
-        <p class="text-base text-gray-700 md:text-lg">
-            We're a global IT consulting firm that helps organisations build better software.
-        </p></div>
-    <div class="grid max-w-screen-lg gap-8 row-gap-10 mx-auto lg:grid-cols-2">
-        <div class="flex flex-col max-w-md sm:mx-auto sm:flex-row">
-            <div class="mr-4">
-                <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100">
-                    <svg stroke="currentColor" viewBox="0 0 52 52" class="w-10 h-10 text-indigo-500">
-                        <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                                 points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-                    </svg>
-                </div>
-            </div>
-            <div><h6 class="mb-3 text-xl font-bold leading-5 text-gray-900">
-                You'll be on the right track with us.
-            </h6>
-                <p class="mb-3 text-sm text-gray-700">
-                    Our IT consultants are all certified and trained to ensure you get the best advice possible when it
-                    comes to technology decisions..
-                </p>
-<!--                <a href="/" aria-label=""-->
-<!--                        class="inline-flex items-center font-semibold text-indigo-500 transition-colors duration-200 hover:text-indigo-500">Learn-->
-<!--                    more</a>-->
-            </div>
-        </div>
-        <div class="flex flex-col max-w-md sm:mx-auto sm:flex-row">
-            <div class="mr-4">
-                <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100">
-                    <svg stroke="currentColor" viewBox="0 0 52 52" class="w-10 h-10 text-indigo-500">
-                        <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
-                                 points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-                    </svg>
-                </div>
-            </div>
-            <div><h6 class="mb-3 text-xl font-bold leading-5 text-gray-900">
-                Helping companies find success through technology.
-            </h6>
-                <p class="mb-3 text-sm text-gray-700">
-                    We believe in using highly talented people to solve complex technological challenges and building
-                    relationships on trust, strengthened by respect and supported by proven processes and robust
-                    governance.
-                </p>
-<!--                <a href="/" aria-label=""-->
-<!--                        class="inline-flex items-center font-semibold text-indigo-500 transition-colors duration-200 hover:text-indigo-500">Learn-->
-<!--                    more</a>-->
-            </div>
-        </div>
+   </nav><!-- Hero Section -->
+   <section class="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden pt-20">
+    <div class="floating-shape w-96 h-96 top-20 left-10" style="background-color: rgba(59, 130, 246, 0.15);"></div>
+    <div class="floating-shape w-64 h-64 bottom-20 right-20" style="background-color: rgba(59, 130, 246, 0.1); animation-delay: -10s;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+     <div class="fade-in">
+      <p class="text-sm font-medium tracking-widest uppercase mb-6" style="color: #3b82f6;">Software Development &amp; IT Consultancy</p>
+      <h1 id="hero-headline" class="text-5xl md:text-7xl font-semibold tracking-tight leading-tight mb-6" style="color: #111827;">Building Tomorrow's<br>
+       Technology Today</h1>
+      <p id="hero-subheadline" class="text-xl md:text-2xl font-light max-w-2xl mx-auto mb-10" style="color: #6b7280;">We partner with forward-thinking organisations to deliver exceptional software solutions and strategic IT consulting.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4"><a href="#contact" class="btn-primary px-8 py-4 text-base font-medium text-white rounded-full" style="background-color: #3b82f6;"> Start a Conversation </a> <a href="#services" class="px-8 py-4 text-base font-medium rounded-full border transition-all hover:border-blue-500 hover:text-blue-500" style="color: #111827; border-color: #e5e7eb;"> Our Services </a>
+      </div>
+     </div>
     </div>
-</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!---->
-<div class="px-4 py-16 mx-auto w-full md:px-24 lg:px-8 lg:py-20 bg-white">
-    <div class="p-8 rounded shadow-xl sm:p-16 max-w-6xl mx-auto">
-        <div class="flex flex-col lg:flex-row">
-            <div class="mb-6 lg:mb-0 lg:w-1/2 lg:pr-5"><h2
-                    class="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                Delivering value with a human touch.
-            </h2></div>
-            <div class="lg:w-1/2"><p class="mb-4 text-base text-gray-700">
-                We help organisations build better software by improving the resiliency of your software, reducing your
-                time to production and enhancing the quality of your software overall.
-            </p> <p aria-label=""
-                    class="inline-flex items-center font-semibold transition-colors duration-200 text-indigo-500 hover:text-indigo-500">Contact Us Now!</p></div>
-        </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+     <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7" />
+     </svg>
     </div>
-</div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> <!----> <!----> <!---->
-<!----> <!----> <!----> <!---->
-<div class="bg-gray-100 px-4 pt-16 mx-auto w-full border-opacity-10 md:px-24 lg:px-8">
-    <div class="max-w-6xl mx-auto grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="sm:col-span-2"><a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
-            <svg viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round"
-                 stroke-miterlimit="10" stroke="currentColor" fill="none`" class="w-8 text-indigo-500">
-                <rect x="3" y="1" width="7" height="12"></rect>
-                <rect x="3" y="17" width="7" height="6"></rect>
-                <rect x="14" y="1" width="7" height="6"></rect>
-                <rect x="14" y="11" width="7" height="12"></rect>
-            </svg>
-            <span class="ml-2 text-xl font-bold tracking-wide text-gray-900 uppercase">Excelsior Consultancy Pty Ltd</span></a>
-            <div class="mt-6 lg:max-w-sm"><p class="text-sm text-gray-900">
-                We help organisations build better software.
-            </p></div>
-        </div>
-        <div id="contact-us" class="space-y-2 text-sm"><p class="text-base font-bold tracking-wide text-gray-900">
-            Contacts
-        </p>
-            <div class="flex"><p class="mr-1 text-gray-900">
-                Phone:
-            </p> <a href="tel:+61 481 715 684" aria-label="Our phone" title="Our phone"
-                    class="transition-colors duration-300 text-indigo-500 hover:text-deep-purple-800">+61 481 715
-                684</a></div>
-            <div class="flex"><p class="mr-1 text-gray-900">
-                Email:
-            </p> <a href="mailto:admin@excelsiorconsultancy.com.au" aria-label="Our email" title="Our email"
-                    class="transition-colors duration-300 text-indigo-500 hover:text-deep-purple-800">admin@excelsiorconsultancy.com.au</a>
-            </div>
-            <div class="flex"><p class="mr-1 text-gray-900">
-                Address:
-            </p> <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer"
-                    aria-label="Our address" title="Our address"
-                    class="transition-colors duration-300 text-indigo-500 hover:text-deep-purple-800">
-                Sydney, NSW - Australia
-            </a></div>
-        </div>
-        <div><span class="text-base font-bold tracking-wide text-gray-900">Social</span>
-            <div class="flex items-center mt-1 space-x-3">
-<!--                <a href="/"-->
-<!--                                                             class="text-gray-700 transition-colors duration-300 hover:text-indigo-500">-->
-<!--                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">-->
-<!--                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>-->
-<!--                </svg>-->
-<!--            </a> <a href="/" class="text-gray-700 transition-colors duration-300 hover:text-indigo-500">-->
-<!--                <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">-->
-<!--                    <circle cx="15" cy="15" r="4"></circle>-->
-<!--                    <path d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z"></path>-->
-<!--                </svg>-->
-<!--            </a> <a href="/" class="text-gray-700 transition-colors duration-300 hover:text-indigo-500">-->
-<!--                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">-->
-<!--                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>-->
-<!--                </svg>-->
-<!--            </a>-->
-                Coming soon...
-            </div>
-        </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-32 parallax-section" style="background-color: #fafafa;">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="fade-in">
+       <p class="text-sm font-medium tracking-widest uppercase mb-4" style="color: #3b82f6;">About Us</p>
+       <h2 id="about-title" class="text-4xl md:text-5xl font-semibold tracking-tight mb-6" style="color: #111827;">Excellence in Every Line of Code</h2>
+       <p id="about-description" class="text-lg leading-relaxed mb-6" style="color: #6b7280;">Excelsior Consultancy is an Australian-based technology partner specialising in enterprise software development and IT consulting. For over a decade, we've helped organisations transform their digital capabilities with precision-engineered solutions.</p>
+       <p class="text-lg leading-relaxed" style="color: #6b7280;">Our team of senior engineers and consultants brings deep expertise across industries, delivering solutions that scale with your ambitions.</p>
+      </div>
+      <div class="fade-in grid grid-cols-2 gap-6">
+       <div class="p-8 rounded-2xl" style="background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+        <p class="text-4xl font-semibold mb-2" style="color: #3b82f6;">15+</p>
+        <p class="text-sm font-medium" style="color: #6b7280;">Years Experience</p>
+       </div>
+       <div class="p-8 rounded-2xl" style="background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+        <p class="text-4xl font-semibold mb-2" style="color: #3b82f6;">200+</p>
+        <p class="text-sm font-medium" style="color: #6b7280;">Projects Delivered</p>
+       </div>
+       <div class="p-8 rounded-2xl" style="background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+        <p class="text-4xl font-semibold mb-2" style="color: #3b82f6;">50+</p>
+        <p class="text-sm font-medium" style="color: #6b7280;">Global Clients</p>
+       </div>
+       <div class="p-8 rounded-2xl" style="background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+        <p class="text-4xl font-semibold mb-2" style="color: #3b82f6;">98%</p>
+        <p class="text-sm font-medium" style="color: #6b7280;">Client Retention</p>
+       </div>
+      </div>
+     </div>
     </div>
-    <div class="max-w-6xl mx-auto flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row"><p
-            class="text-sm text-gray-700">
-        &#169; Copyright 2020 Company. All rights reserved.
-    </p>
-<!--        <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">-->
-<!--            <li><a href="/" class="text-sm text-gray-700 transition-colors duration-300 hover:text-indigo-500">F.A.Q</a>-->
-<!--            </li>-->
-<!--            <li><a href="/" class="text-sm text-gray-700 transition-colors duration-300 hover:text-indigo-500">Privacy-->
-<!--                Policy</a></li>-->
-<!--            <li><a href="/" class="text-sm text-gray-700 transition-colors duration-300 hover:text-indigo-500">Terms-->
-<!--                &amp; Conditions</a></li>-->
-<!--        </ul>-->
+   </section><!-- Services Section -->
+   <section id="services" class="py-32 parallax-section" style="background-color: #ffffff;">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-20 fade-in">
+      <p class="text-sm font-medium tracking-widest uppercase mb-4" style="color: #3b82f6;">What We Do</p>
+      <h2 id="services-title" class="text-4xl md:text-5xl font-semibold tracking-tight" style="color: #111827;">Our Services</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Software Development -->
+      <div class="service-card fade-in p-10 rounded-3xl border" style="background-color: #ffffff; border-color: #f3f4f6;">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.1);">
+        <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><polyline points="16 18 22 12 16 6" /> <polyline points="8 6 2 12 8 18" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-semibold mb-4" style="color: #111827;">Software Development</h3>
+       <p class="text-base leading-relaxed mb-6" style="color: #6b7280;">Custom software solutions built for performance, scalability, and longevity. From web applications to complex enterprise systems, we architect with precision.</p>
+       <ul class="space-y-2">
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Full-stack development</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Cloud-native architecture</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> API design &amp; integration</li>
+       </ul>
+      </div><!-- Quality Assurance -->
+      <div class="service-card fade-in p-10 rounded-3xl border" style="background-color: #ffffff; border-color: #f3f4f6;">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.1);">
+        <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M9 12l2 2 4-4" /> <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-semibold mb-4" style="color: #111827;">Quality Assurance &amp; Testing</h3>
+       <p class="text-base leading-relaxed mb-6" style="color: #6b7280;">Rigorous testing methodologies that ensure your software performs flawlessly. We identify issues before they reach your users.</p>
+       <ul class="space-y-2">
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Automated testing frameworks</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Performance testing</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Security audits</li>
+       </ul>
+      </div><!-- Application Maintenance -->
+      <div class="service-card fade-in p-10 rounded-3xl border" style="background-color: #ffffff; border-color: #f3f4f6;">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.1);">
+        <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-semibold mb-4" style="color: #111827;">Application Maintenance</h3>
+       <p class="text-base leading-relaxed mb-6" style="color: #6b7280;">Ongoing support and enhancement services that keep your applications running optimally. We maintain, update, and evolve your systems.</p>
+       <ul class="space-y-2">
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> 24/7 support available</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Legacy modernisation</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Performance optimisation</li>
+       </ul>
+      </div><!-- IT Consulting -->
+      <div class="service-card fade-in p-10 rounded-3xl border" style="background-color: #ffffff; border-color: #f3f4f6;">
+       <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.1);">
+        <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10" /> <line x1="12" y1="16" x2="12" y2="12" /> <line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-semibold mb-4" style="color: #111827;">IT Consulting</h3>
+       <p class="text-base leading-relaxed mb-6" style="color: #6b7280;">Strategic guidance to align your technology investments with business objectives. We help you make informed decisions that drive growth.</p>
+       <ul class="space-y-2">
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Digital transformation</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Technology roadmapping</li>
+        <li class="flex items-center gap-3 text-sm" style="color: #6b7280;"><span style="color: #3b82f6;">✓</span> Architecture consulting</li>
+       </ul>
+      </div>
+     </div>
     </div>
-</div> <!----></body>
+   </section><!-- Why Choose Us -->
+   <section id="why-us" class="py-32 parallax-section" style="background-color: #111827;">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-20 fade-in">
+      <p class="text-sm font-medium tracking-widest uppercase mb-4" style="color: #3b82f6;">Why Excelsior</p>
+      <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white">The Excelsior Difference</h2>
+     </div>
+     <div class="grid md:grid-cols-4 gap-8">
+      <div class="fade-in text-center">
+       <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.2);">
+        <svg width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /> <path d="M2 17l10 5 10-5" /> <path d="M2 12l10 5 10-5" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold text-white mb-3">Deep Experience</h3>
+       <p class="text-sm leading-relaxed" style="color: #9ca3af;">15+ years delivering enterprise solutions across diverse industries and technologies.</p>
+      </div>
+      <div class="fade-in text-center">
+       <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.2);">
+        <svg width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10" /> <line x1="2" y1="12" x2="22" y2="12" /> <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold text-white mb-3">Global Reach</h3>
+       <p class="text-sm leading-relaxed" style="color: #9ca3af;">Serving clients across Australia, Asia-Pacific, Europe, and North America.</p>
+      </div>
+      <div class="fade-in text-center">
+       <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.2);">
+        <svg width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold text-white mb-3">Quality First</h3>
+       <p class="text-sm leading-relaxed" style="color: #9ca3af;">ISO-certified processes and rigorous quality standards in every engagement.</p>
+      </div>
+      <div class="fade-in text-center">
+       <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(59, 130, 246, 0.2);">
+        <svg width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /> <polyline points="3.27 6.96 12 12.01 20.73 6.96" /> <line x1="12" y1="22.08" x2="12" y2="12" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-semibold text-white mb-3">Scalable Solutions</h3>
+       <p class="text-sm leading-relaxed" style="color: #9ca3af;">Architecture designed to grow with your business, from startup to enterprise.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Global Presence -->
+   <section class="py-32 parallax-section" style="background-color: #fafafa;">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="fade-in">
+       <p class="text-sm font-medium tracking-widest uppercase mb-4" style="color: #3b82f6;">Global Presence</p>
+       <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6" style="color: #111827;">Australian Expertise,<br>
+        Worldwide Delivery</h2>
+       <p class="text-lg leading-relaxed mb-8" style="color: #6b7280;">Headquartered in Sydney, Australia, we serve clients across the globe. Our distributed team operates across multiple time zones, ensuring responsive support and seamless collaboration regardless of your location.</p>
+       <div class="flex flex-wrap gap-6">
+        <div class="flex items-center gap-3">
+         <div class="w-3 h-3 rounded-full" style="background-color: #3b82f6;"></div><span class="text-sm font-medium" style="color: #6b7280;">Australia &amp; New Zealand</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <div class="w-3 h-3 rounded-full" style="background-color: #3b82f6;"></div><span class="text-sm font-medium" style="color: #6b7280;">Asia-Pacific</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <div class="w-3 h-3 rounded-full" style="background-color: #3b82f6;"></div><span class="text-sm font-medium" style="color: #6b7280;">Europe</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <div class="w-3 h-3 rounded-full" style="background-color: #3b82f6;"></div><span class="text-sm font-medium" style="color: #6b7280;">North America</span>
+        </div>
+       </div>
+      </div>
+      <div class="fade-in relative">
+       <svg viewbox="0 0 400 300" class="w-full" style="color: #e5e7eb;"><!-- Simplified world map representation --> <ellipse cx="200" cy="150" rx="180" ry="120" fill="none" stroke="currentColor" stroke-width="1" /> <ellipse cx="200" cy="150" rx="180" ry="120" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4" /> <ellipse cx="200" cy="150" rx="120" ry="80" fill="none" stroke="currentColor" stroke-width="0.5" /> <line x1="20" y1="150" x2="380" y2="150" stroke="currentColor" stroke-width="0.5" /> <line x1="200" y1="30" x2="200" y2="270" stroke="currentColor" stroke-width="0.5" /> <!-- Location markers --> <circle cx="320" cy="180" r="8" fill="#3b82f6" opacity="0.8">
+         <animate attributename="r" values="8;12;8" dur="2s" repeatcount="indefinite" />
+        </circle> <circle cx="320" cy="180" r="4" fill="#3b82f6" /> <circle cx="280" cy="120" r="6" fill="#3b82f6" opacity="0.6" /> <circle cx="120" cy="130" r="6" fill="#3b82f6" opacity="0.6" /> <circle cx="80" cy="160" r="6" fill="#3b82f6" opacity="0.6" />
+       </svg>
+       <div class="absolute bottom-4 right-4 px-4 py-2 rounded-full text-sm font-medium" style="background-color: #3b82f6; color: white;">
+        Sydney, Australia
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-32 parallax-section" style="background-color: #ffffff;">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="grid md:grid-cols-2 gap-16">
+      <div class="fade-in">
+       <p class="text-sm font-medium tracking-widest uppercase mb-4" style="color: #3b82f6;">Get in Touch</p>
+       <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6" style="color: #111827;">Let's Build Something Great</h2>
+       <p class="text-lg leading-relaxed mb-10" style="color: #6b7280;">Ready to transform your technology landscape? We'd love to hear about your project and explore how we can help.</p>
+       <div class="space-y-6">
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: rgba(59, 130, 246, 0.1);">
+          <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /> <polyline points="22,6 12,13 2,6" />
+          </svg>
+         </div>
+         <div>
+          <p class="text-sm font-medium" style="color: #6b7280;">Email</p>
+          <p id="contact-email-display" class="text-base font-medium" style="color: #111827;">contact@excelsiorconsultancy.com.au</p>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: rgba(59, 130, 246, 0.1);">
+          <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /> <circle cx="12" cy="10" r="3" />
+          </svg>
+         </div>
+         <div>
+          <p class="text-sm font-medium" style="color: #6b7280;">Location</p>
+          <p id="contact-location-display" class="text-base font-medium" style="color: #111827;">Sydney, Australia</p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="fade-in">
+       <form id="contact-form" class="p-8 rounded-3xl" style="background-color: #fafafa;">
+        <div class="space-y-6">
+         <div><label for="name" class="block text-sm font-medium mb-2" style="color: #111827;">Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border transition-all" style="background-color: #ffffff; border-color: #e5e7eb; color: #111827;" placeholder="Your name">
+         </div>
+         <div><label for="email" class="block text-sm font-medium mb-2" style="color: #111827;">Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border transition-all" style="background-color: #ffffff; border-color: #e5e7eb; color: #111827;" placeholder="you@company.com">
+         </div>
+         <div><label for="company" class="block text-sm font-medium mb-2" style="color: #111827;">Company</label> <input type="text" id="company" name="company" class="w-full px-4 py-3 rounded-xl border transition-all" style="background-color: #ffffff; border-color: #e5e7eb; color: #111827;" placeholder="Your company">
+         </div>
+         <div><label for="message" class="block text-sm font-medium mb-2" style="color: #111827;">Message</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border transition-all resize-none" style="background-color: #ffffff; border-color: #e5e7eb; color: #111827;" placeholder="Tell us about your project"></textarea>
+         </div><button type="submit" class="w-full btn-primary py-4 text-base font-medium text-white rounded-xl transition-all" style="background-color: #3b82f6;"> Send Message </button>
+        </div>
+        <div id="form-success" class="hidden mt-6 p-4 rounded-xl text-center" style="background-color: rgba(59, 130, 246, 0.1);">
+         <p class="text-sm font-medium" style="color: #3b82f6;">Thank you! We'll be in touch soon.</p>
+        </div>
+       </form>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 border-t" style="background-color: #ffffff; border-color: #f3f4f6;">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2">
+       <svg width="24" height="24" viewbox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#3b82f6" /> <path d="M8 16L14 10L20 16L14 22L8 16Z" fill="white" /> <path d="M14 16L20 10L26 16L20 22L14 16Z" fill="white" fill-opacity="0.6" />
+       </svg><span class="font-semibold" style="color: #111827;">Excelsior Consultancy Pty Ltd</span>
+      </div>
+      <p class="text-sm" style="color: #6b7280;">© 2024 Excelsior Consultancy. All rights reserved.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_headline: 'Building Tomorrow\'s\nTechnology Today',
+      hero_subheadline: 'We partner with forward-thinking organisations to deliver exceptional software solutions and strategic IT consulting.',
+      about_title: 'Excellence in Every Line of Code',
+      about_description: 'Excelsior Consultancy is an Australian-based technology partner specialising in enterprise software development and IT consulting. For over a decade, we\'ve helped organisations transform their digital capabilities with precision-engineered solutions.',
+      services_title: 'Our Services',
+      contact_email: 'contact@excelsiorconsultancy.com.au',
+      contact_location: 'Sydney, Australia',
+      background_color: '#ffffff',
+      text_color: '#111827',
+      secondary_text_color: '#6b7280',
+      accent_color: '#3b82f6',
+      surface_color: '#fafafa',
+      font_family: 'Inter',
+      font_size: 16
+    };
+
+    let config = { ...defaultConfig };
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Form handling
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formSuccess.classList.remove('hidden');
+      contactForm.reset();
+      setTimeout(() => {
+        formSuccess.classList.add('hidden');
+      }, 5000);
+    });
+
+    // Parallax effect
+    let ticking = false;
+    document.getElementById('app-wrapper').addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Element SDK initialization
+    async function onConfigChange(cfg) {
+      config = { ...defaultConfig, ...cfg };
+      
+      // Update hero section
+      const heroHeadline = document.getElementById('hero-headline');
+      if (heroHeadline) {
+        heroHeadline.innerHTML = (config.hero_headline || defaultConfig.hero_headline).replace(/\n/g, '<br>');
+      }
+      
+      const heroSubheadline = document.getElementById('hero-subheadline');
+      if (heroSubheadline) {
+        heroSubheadline.textContent = config.hero_subheadline || defaultConfig.hero_subheadline;
+      }
+      
+      // Update about section
+      const aboutTitle = document.getElementById('about-title');
+      if (aboutTitle) {
+        aboutTitle.textContent = config.about_title || defaultConfig.about_title;
+      }
+      
+      const aboutDescription = document.getElementById('about-description');
+      if (aboutDescription) {
+        aboutDescription.textContent = config.about_description || defaultConfig.about_description;
+      }
+      
+      // Update services section
+      const servicesTitle = document.getElementById('services-title');
+      if (servicesTitle) {
+        servicesTitle.textContent = config.services_title || defaultConfig.services_title;
+      }
+      
+      // Update contact section
+      const contactEmailDisplay = document.getElementById('contact-email-display');
+      if (contactEmailDisplay) {
+        contactEmailDisplay.textContent = config.contact_email || defaultConfig.contact_email;
+      }
+      
+      const contactLocationDisplay = document.getElementById('contact-location-display');
+      if (contactLocationDisplay) {
+        contactLocationDisplay.textContent = config.contact_location || defaultConfig.contact_location;
+      }
+
+      // Apply colors
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const secondaryTextColor = config.secondary_text_color || defaultConfig.secondary_text_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+
+      document.getElementById('app-wrapper').style.backgroundColor = bgColor;
+      
+      // Apply font
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const baseFontStack = '-apple-system, BlinkMacSystemFont, sans-serif';
+      document.body.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+
+      // Apply font size scaling
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.documentElement.style.fontSize = `${baseSize}px`;
+    }
+
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [
+          {
+            get: () => cfg.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            }
+          },
+          {
+            get: () => cfg.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          },
+          {
+            get: () => cfg.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          },
+          {
+            get: () => cfg.secondary_text_color || defaultConfig.secondary_text_color,
+            set: (value) => {
+              config.secondary_text_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ secondary_text_color: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => cfg.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          }
+        },
+        fontSizeable: {
+          get: () => cfg.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ['hero_headline', cfg.hero_headline || defaultConfig.hero_headline],
+        ['hero_subheadline', cfg.hero_subheadline || defaultConfig.hero_subheadline],
+        ['about_title', cfg.about_title || defaultConfig.about_title],
+        ['about_description', cfg.about_description || defaultConfig.about_description],
+        ['services_title', cfg.services_title || defaultConfig.services_title],
+        ['contact_email', cfg.contact_email || defaultConfig.contact_email],
+        ['contact_location', cfg.contact_location || defaultConfig.contact_location]
+      ]);
+    }
+
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cecc8cfa3feff64',t:'MTc3MTI0MjE3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
